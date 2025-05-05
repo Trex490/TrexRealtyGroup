@@ -1,93 +1,122 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Trex Realty Group</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background-color: #f4f4f4;
-      color: #333;
+    :root {
+      --green-accent: #00FF66;
+      --primary-gray: #444C50;
+      --dark-bg: #2C2F33;
+      --light-bg: #F5F5F5;
+      --text-white: #FFFFFF;
     }
+
+    body {
+      background-color: var(--light-bg);
+      color: var(--primary-gray);
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
     header {
-      background: #1e3a8a;
-      color: #fff;
-      padding: 1.5rem;
+      background-color: var(--dark-bg);
+      color: var(--text-white);
+      padding: 2rem 1rem;
       text-align: center;
     }
+
+    header a {
+      display: inline-block;
+    }
+
+    header img {
+      max-height: 100px;
+    }
+
+    nav {
+      background-color: var(--primary-gray);
+      display: flex;
+      justify-content: center;
+      padding: 0.5rem;
+      flex-wrap: wrap;
+    }
+
     nav a {
-      color: #fff;
-      margin: 0 1rem;
+      color: var(--text-white);
       text-decoration: none;
+      margin: 0.5rem 1rem;
       font-weight: bold;
     }
-    section {
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
-      background: white;
+
+    nav a:hover {
+      color: var(--green-accent);
     }
+
+    .hero {
+      background-color: var(--dark-bg);
+      color: var(--text-white);
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+    }
+
+    .btn-primary {
+      background-color: var(--green-accent);
+      color: var(--text-white);
+      border: none;
+      padding: 0.75rem 1.5rem;
+      margin-top: 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #00cc55;
+    }
+
     footer {
+      background-color: var(--primary-gray);
+      color: var(--text-white);
       text-align: center;
       padding: 1rem;
-      background: #1e3a8a;
-      color: white;
-      position: relative;
-      bottom: 0;
-      width: 100%;
-    }
-    .btn {
-      display: inline-block;
-      background: #1e3a8a;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      text-decoration: none;
-      border-radius: 4px;
-      margin-top: 1rem;
     }
   </style>
 </head>
 <body>
-
   <header>
-    <h1>Trex Realty Group</h1>
-    <p>Texas Real Estate Experts You Can Trust</p>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <a href="/">
+      <img src="TrexRealty.png" alt="Trex Realty Logo">
+    </a>
   </header>
 
-  <section id="about">
-    <h2>Welcome</h2>
-    <p>At Trex Realty Group, we’re committed to helping you buy or sell your home with confidence. Our team combines experience, market knowledge, and personalized service to deliver outstanding results.</p>
-    <a href="#contact" class="btn">Get in Touch</a>
-  </section>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="reviews.html">Reviews</a>
+    <a href="listings.html">Active Listings</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="estimate.html">Get Free Home Estimate</a>
+  </nav>
 
-  <section id="services">
-    <h2>Our Services</h2>
-    <ul>
-      <li>Residential Buying & Selling</li>
-      <li>Investment Property Guidance</li>
-      <li>Marketing & Listing Services</li>
-      <li>First-Time Buyer Support</li>
-    </ul>
-  </section>
-
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:info@trexrealtygroup.com">info@trexrealtygroup.com</a></p>
-    <p>Phone: (123) 456-7890</p>
-    <p>Office Location: College Station, TX</p>
+  <section class="hero">
+    <h1>Welcome to Trex Realty Group</h1>
+    <p>Your modern real estate partner committed to results and relationships.</p>
+    <a href="contact.html" class="btn-primary">Get in Touch</a>
   </section>
 
   <footer>
-    &copy; 2025 Trex Realty Group. All rights reserved.
+    <p>&copy; 2025 Trex Realty Group. All rights reserved.</p>
   </footer>
-
 </body>
 </html>
