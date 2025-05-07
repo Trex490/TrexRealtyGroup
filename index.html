@@ -19,6 +19,7 @@
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
+      scroll-behavior: smooth;
     }
 
     header {
@@ -26,6 +27,7 @@
       color: var(--text-white);
       padding: 2rem 1rem;
       text-align: center;
+      border-bottom: 4px solid var(--green-accent);
     }
 
     header a {
@@ -49,27 +51,40 @@
       text-decoration: none;
       margin: 0.5rem 1rem;
       font-weight: bold;
+      text-transform: uppercase;
     }
 
     nav a:hover {
       color: var(--green-accent);
     }
 
-    .hero {
-      background: linear-gradient(rgba(0, 51, 0, 0.6), rgba(0, 51, 0, 0.6)), 
-              url('https://images.unsplash.com/photo-1560185127-6ed189bf02f4?auto=format&fit=crop&w=1950&q=80') 
-              center/cover no-repeat;
-      color: var(--text-white);
-      text-align: center;
+    section {
       padding: 4rem 1rem;
+      min-height: 80vh;
+      transition: all 0.6s ease-out;
+      opacity: 0;
+      transform: translateX(100px);
     }
 
-    .hero h1 {
+    section.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    #home {
+      background: linear-gradient(rgba(0, 51, 0, 0.6), rgba(0, 51, 0, 0.6)), url('a6efe368-f1f1-433d-ba27-6d7cf1a0caad.png') center/cover no-repeat;
+      color: var(--text-white);
+      text-align: center;
+    }
+
+    #home h1 {
       font-size: 2.5rem;
     }
 
-    .hero p {
+    #home p {
       font-size: 1.2rem;
+      max-width: 600px;
+      margin: 1rem auto;
     }
 
     .btn-primary {
@@ -98,28 +113,73 @@
 </head>
 <body>
   <header>
-    <a href="/">
+    <a href="#home">
       <img src="TrexRealty.png" alt="Trex Realty Logo">
     </a>
   </header>
 
   <nav>
-    <a href="index.html">Home</a>
-    <a href="search.html">Search</a>
-    <a href="sell.html">Sell A Home</a>
-    <a href="bio.html">About Us</a>
-    <a href="contact.html">Contact Us</a>
-    <a href="tools.html">Useful Tools</a>
+    <a href="#home">Home</a>
+    <a href="#search">Search</a>
+    <a href="#sell">Sell A Home</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact Us</a>
+    <a href="#tools">Useful Tools</a>
   </nav>
 
-  <section class="hero">
+  <section id="home" class="section visible">
     <h1>Welcome to Trex Realty Group</h1>
-    <p>Your modern real estate partner committed to results and relationships.</p>
-    <a href="contact.html" class="btn-primary">Get in Touch</a>
+    <p>Your modern real estate partner committed to results and relationships. Proudly partnered with Nobles Realty Group, LLC.</p>
+    <a href="#contact" class="btn-primary">Get in Touch</a>
+  </section>
+
+  <section id="search" class="section slide-in">
+    <h2>Search</h2>
+    <p>Explore active listings and find your next home through our search platform.</p>
+  </section>
+
+  <section id="sell" class="section slide-in">
+    <h2>Sell A Home</h2>
+    <p>Let us help you price, market, and sell your home with expert guidance.</p>
+  </section>
+
+  <section id="about" class="section slide-in">
+    <h2>About Us</h2>
+    <img src="Headshot.png" alt="Headshot" style="max-width: 200px; border-radius: 50%; margin: 1rem auto; display: block;">
+    <p>Travis Stahl is a dedicated real estate professional and business educator based in College Station, Texas. As a professor at Blinn College and a licensed real estate agent with Nobles Realty Group, LLC, Travis brings a unique blend of academic expertise and real-world experience to every client interaction.
+
+When he's not guiding students or helping clients buy and sell homes, Travis enjoys playing disc golf, woodworking, and spending time with his family. Known for his clear communication, integrity, and local knowledge, Travis is passionate about building strong relationships and delivering exceptional results.
+
+Whether you're a first-time homebuyer, investor, or looking to make a move, Travis is here to help—combining strategy, service, and heart in every transaction.</p>
+    <p><a href="#contact" class="btn-primary">Contact Me</a></p>
+  </section>
+
+  <section id="contact" class="section slide-in">
+    <h2>Contact Us</h2>
+    <p>Reach out today to start your real estate journey.</p>
+  </section>
+
+  <section id="tools" class="section slide-in">
+    <h2>Useful Tools</h2>
+    <p>Mortgage calculators, market insights, and other helpful resources.</p>
   </section>
 
   <footer>
-    <p>&copy; 2025 Trex Realty Group. All rights reserved.</p>
+    <p>&copy; 2025 Trex Realty Group. All rights reserved. | Powered by Nobles Realty Group, LLC</p>
   </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    });
+
+    document.querySelectorAll('.slide-in').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 </body>
 </html>
